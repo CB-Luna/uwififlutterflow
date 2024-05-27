@@ -1,0 +1,644 @@
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'more_options_content_model.dart';
+export 'more_options_content_model.dart';
+
+class MoreOptionsContentWidget extends StatefulWidget {
+  const MoreOptionsContentWidget({super.key});
+
+  @override
+  State<MoreOptionsContentWidget> createState() =>
+      _MoreOptionsContentWidgetState();
+}
+
+class _MoreOptionsContentWidgetState extends State<MoreOptionsContentWidget> {
+  late MoreOptionsContentModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => MoreOptionsContentModel());
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SingleChildScrollView(
+      child: Column(
+        mainAxisSize: MainAxisSize.max,
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(0.0, 50.0, 0.0, 0.0),
+            child: Text(
+              'More Options',
+              style: FlutterFlowTheme.of(context).bodyMedium.override(
+                    fontFamily: 'Readex Pro',
+                    fontSize: 34.0,
+                    letterSpacing: 0.0,
+                    fontWeight: FontWeight.bold,
+                  ),
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(150.0, 20.0, 150.0, 0.0),
+            child: ListView(
+              padding: EdgeInsets.zero,
+              shrinkWrap: true,
+              scrollDirection: Axis.vertical,
+              children: [
+                Padding(
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 20.0),
+                  child: Material(
+                    color: Colors.transparent,
+                    elevation: 4.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Container(
+                      width: 100.0,
+                      height: 100.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        image: DecorationImage(
+                          fit: BoxFit.cover,
+                          image: Image.asset(
+                            'assets/images/Recurso_31fh.png',
+                          ).image,
+                        ),
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Padding(
+                        padding: const EdgeInsets.all(6.0),
+                        child: InkWell(
+                          splashColor: Colors.transparent,
+                          focusColor: Colors.transparent,
+                          hoverColor: Colors.transparent,
+                          highlightColor: Colors.transparent,
+                          onTap: () async {
+                            context.pushNamed('UserProfile');
+                          },
+                          child: Row(
+                            mainAxisSize: MainAxisSize.max,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            crossAxisAlignment: CrossAxisAlignment.center,
+                            children: [
+                              Align(
+                                alignment: const AlignmentDirectional(-1.0, 0.0),
+                                child: Container(
+                                  width: 80.0,
+                                  height: 80.0,
+                                  clipBehavior: Clip.antiAlias,
+                                  decoration: const BoxDecoration(
+                                    shape: BoxShape.circle,
+                                  ),
+                                  child: Image.asset(
+                                    'assets/images/Recurso_7.png',
+                                    fit: BoxFit.cover,
+                                  ),
+                                ),
+                              ),
+                              Padding(
+                                padding: const EdgeInsetsDirectional.fromSTEB(
+                                    50.0, 0.0, 0.0, 0.0),
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.center,
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          0.0, 0.0, 0.0, 10.0),
+                                      child: Text(
+                                        'John Doe',
+                                        style: FlutterFlowTheme.of(context)
+                                            .bodyMedium
+                                            .override(
+                                              fontFamily: 'Readex Pro',
+                                              color:
+                                                  FlutterFlowTheme.of(context)
+                                                      .primaryBackground,
+                                              fontSize: 34.0,
+                                              letterSpacing: 0.0,
+                                              fontWeight: FontWeight.w600,
+                                            ),
+                                      ),
+                                    ),
+                                    Text(
+                                      'email@email.com',
+                                      style: FlutterFlowTheme.of(context)
+                                          .bodyMedium
+                                          .override(
+                                            fontFamily: 'Readex Pro',
+                                            color: FlutterFlowTheme.of(context)
+                                                .primaryBackground,
+                                            fontSize: 24.0,
+                                            letterSpacing: 0.0,
+                                            fontWeight: FontWeight.normal,
+                                          ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 20.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed('Usage');
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 4.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Container(
+                        width: 100.0,
+                        height: 60.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 0.0, 0.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Data usage',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 24.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 0.0, 15.0, 0.0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.angleRight,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 32.0,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 20.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed('FreshMerch');
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 4.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Container(
+                        width: 100.0,
+                        height: 60.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          image: DecorationImage(
+                            fit: BoxFit.cover,
+                            image: Image.asset(
+                              'assets/images/Recurso_31fh.png',
+                            ).image,
+                          ),
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 0.0, 0.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Fresh Merch',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          color: Colors.white,
+                                          fontSize: 20.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            const Expanded(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Padding(
+                                        padding: EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 0.0, 15.0, 0.0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.angleRight,
+                                          color: Colors.white,
+                                          size: 20.0,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 20.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed('AdvancedCellularMetrics');
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 4.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Container(
+                        width: 100.0,
+                        height: 60.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 0.0, 0.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Advanced cellular metrics',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 24.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 0.0, 15.0, 0.0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.angleRight,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 32.0,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 20.0),
+                  child: Material(
+                    color: Colors.transparent,
+                    elevation: 4.0,
+                    shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(10.0),
+                    ),
+                    child: Container(
+                      width: 100.0,
+                      height: 60.0,
+                      decoration: BoxDecoration(
+                        color: FlutterFlowTheme.of(context).secondaryBackground,
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Row(
+                        mainAxisSize: MainAxisSize.max,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
+                                15.0, 0.0, 0.0, 0.0),
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Change your gateway password',
+                                  style: FlutterFlowTheme.of(context)
+                                      .bodyMedium
+                                      .override(
+                                        fontFamily: 'Readex Pro',
+                                        fontSize: 24.0,
+                                        letterSpacing: 0.0,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Expanded(
+                            child: Column(
+                              mainAxisSize: MainAxisSize.max,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Row(
+                                  mainAxisSize: MainAxisSize.max,
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    Padding(
+                                      padding: const EdgeInsetsDirectional.fromSTEB(
+                                          15.0, 0.0, 15.0, 0.0),
+                                      child: FaIcon(
+                                        FontAwesomeIcons.angleRight,
+                                        color: FlutterFlowTheme.of(context)
+                                            .primary,
+                                        size: 32.0,
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 20.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed('intro_page');
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 4.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Container(
+                        width: 100.0,
+                        height: 60.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 0.0, 0.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Gateway Connection Tutorial',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 24.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 0.0, 15.0, 0.0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.angleRight,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 32.0,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding:
+                      const EdgeInsetsDirectional.fromSTEB(15.0, 0.0, 15.0, 20.0),
+                  child: InkWell(
+                    splashColor: Colors.transparent,
+                    focusColor: Colors.transparent,
+                    hoverColor: Colors.transparent,
+                    highlightColor: Colors.transparent,
+                    onTap: () async {
+                      context.pushNamed('speed_test_page');
+                    },
+                    child: Material(
+                      color: Colors.transparent,
+                      elevation: 4.0,
+                      shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(10.0),
+                      ),
+                      child: Container(
+                        width: 100.0,
+                        height: 60.0,
+                        decoration: BoxDecoration(
+                          color:
+                              FlutterFlowTheme.of(context).secondaryBackground,
+                          borderRadius: BorderRadius.circular(10.0),
+                        ),
+                        child: Row(
+                          mainAxisSize: MainAxisSize.max,
+                          children: [
+                            Padding(
+                              padding: const EdgeInsetsDirectional.fromSTEB(
+                                  15.0, 0.0, 0.0, 0.0),
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Text(
+                                    'Internet Speed test',
+                                    style: FlutterFlowTheme.of(context)
+                                        .bodyMedium
+                                        .override(
+                                          fontFamily: 'Readex Pro',
+                                          fontSize: 24.0,
+                                          letterSpacing: 0.0,
+                                          fontWeight: FontWeight.w600,
+                                        ),
+                                  ),
+                                ],
+                              ),
+                            ),
+                            Expanded(
+                              child: Column(
+                                mainAxisSize: MainAxisSize.max,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Row(
+                                    mainAxisSize: MainAxisSize.max,
+                                    mainAxisAlignment: MainAxisAlignment.end,
+                                    children: [
+                                      Padding(
+                                        padding: const EdgeInsetsDirectional.fromSTEB(
+                                            15.0, 0.0, 15.0, 0.0),
+                                        child: FaIcon(
+                                          FontAwesomeIcons.angleRight,
+                                          color: FlutterFlowTheme.of(context)
+                                              .primary,
+                                          size: 32.0,
+                                        ),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+              ].divide(const SizedBox(height: 20.0)),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}
