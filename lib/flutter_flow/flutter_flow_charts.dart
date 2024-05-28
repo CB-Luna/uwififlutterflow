@@ -4,8 +4,7 @@ import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 
-export 'package:fl_chart/fl_chart.dart'
-    show BarAreaData, FlDotData, LineChartBarData, BarChartAlignment;
+export 'package:fl_chart/fl_chart.dart' show BarAreaData, FlDotData, LineChartBarData, BarChartAlignment;
 
 class FlutterFlowLineChart extends StatelessWidget {
   const FlutterFlowLineChart({
@@ -23,17 +22,14 @@ class FlutterFlowLineChart extends StatelessWidget {
   final AxisBounds axisBounds;
   final ChartStylingInfo chartStylingInfo;
 
-  List<LineChartBarData> get dataWithSpots =>
-      data.map((d) => d.settings.copyWith(spots: d.spots)).toList();
+  List<LineChartBarData> get dataWithSpots => data.map((d) => d.settings.copyWith(spots: d.spots)).toList();
 
   @override
   Widget build(BuildContext context) => LineChart(
         LineChartData(
           lineTouchData: LineTouchData(
             handleBuiltInTouches: chartStylingInfo.enableTooltip,
-            touchTooltipData: LineTouchTooltipData(
-              tooltipBgColor: chartStylingInfo.tooltipBackgroundColor,
-            ),
+            touchTooltipData: const LineTouchTooltipData(),
           ),
           gridData: FlGridData(show: chartStylingInfo.showGrid),
           borderData: FlBorderData(
@@ -87,8 +83,8 @@ class FlutterFlowBarChart extends StatelessWidget {
   final BarChartAlignment alignment;
   final ChartStylingInfo chartStylingInfo;
 
-  Map<int, List<double>> get dataMap => xLabels.asMap().map((key, value) =>
-      MapEntry(key, barData.map((data) => data.data[key]).toList()));
+  Map<int, List<double>> get dataMap =>
+      xLabels.asMap().map((key, value) => MapEntry(key, barData.map((data) => data.data[key]).toList()));
 
   List<BarChartGroupData> get groups => dataMap.entries.map((entry) {
         final groupInt = entry.key;
@@ -127,8 +123,7 @@ class FlutterFlowBarChart extends StatelessWidget {
               rodStackItems: stackData.asMap().entries.map((stack) {
                 final stackInt = stack.key;
                 final stackSettings = barData[stackInt];
-                final start =
-                    stackInt == 0 ? 0.0 : sum(stackData.sublist(0, stackInt));
+                final start = stackInt == 0 ? 0.0 : sum(stackData.sublist(0, stackInt));
                 return BarChartRodStackItem(
                   start,
                   start + stack.value,
@@ -152,9 +147,7 @@ class FlutterFlowBarChart extends StatelessWidget {
       BarChartData(
         barTouchData: BarTouchData(
           handleBuiltInTouches: chartStylingInfo.enableTooltip,
-          touchTooltipData: BarTouchTooltipData(
-            tooltipBgColor: chartStylingInfo.tooltipBackgroundColor,
-          ),
+          touchTooltipData: BarTouchTooltipData(),
         ),
         alignment: alignment,
         gridData: FlGridData(show: chartStylingInfo.showGrid),
@@ -227,8 +220,7 @@ class FlutterFlowPieChart extends StatelessWidget {
                   title = formatLabel(labelFormatter, sectionData);
                   break;
                 case PieChartSectionLabelType.percent:
-                  title =
-                      '${formatLabel(labelFormatter, sectionData / sumOfValues * 100)}%';
+                  title = '${formatLabel(labelFormatter, sectionData / sumOfValues * 100)}%';
                   break;
                 default:
                   break;
@@ -236,18 +228,11 @@ class FlutterFlowPieChart extends StatelessWidget {
               return PieChartSectionData(
                 value: sectionData,
                 color: data.colors[index % colorsLength],
-                radius: otherPropsLength == 1
-                    ? data.radius.first
-                    : data.radius[index],
+                radius: otherPropsLength == 1 ? data.radius.first : data.radius[index],
                 borderSide: BorderSide(
-                  color: (otherPropsLength == 1
-                          ? data.borderColor?.first
-                          : data.borderColor?.elementAt(index)) ??
+                  color: (otherPropsLength == 1 ? data.borderColor?.first : data.borderColor?.elementAt(index)) ??
                       Colors.transparent,
-                  width: (otherPropsLength == 1
-                          ? data.borderWidth?.first
-                          : data.borderWidth?.elementAt(index)) ??
-                      0.0,
+                  width: (otherPropsLength == 1 ? data.borderWidth?.first : data.borderWidth?.elementAt(index)) ?? 0.0,
                 ),
                 showTitle: sectionLabelType != PieChartSectionLabelType.none,
                 titleStyle: sectionLabelStyle,
@@ -463,9 +448,7 @@ List<double?> _dataToDouble(List<dynamic> data) {
     return data.map((d) => (d as int).toDouble()).toList();
   }
   if (data.first is DateTime) {
-    return data
-        .map((d) => (d as DateTime).millisecondsSinceEpoch.toDouble())
-        .toList();
+    return data.map((d) => (d as DateTime).millisecondsSinceEpoch.toDouble()).toList();
   }
   if (data.first is String) {
     // First try to parse as doubles
@@ -476,10 +459,7 @@ List<double?> _dataToDouble(List<dynamic> data) {
       return data.map((d) => int.tryParse(d as String)?.toDouble()).toList();
     }
     if (DateTime.tryParse(data.first as String) != null) {
-      return data
-          .map((d) =>
-              DateTime.tryParse(d as String)?.millisecondsSinceEpoch.toDouble())
-          .toList();
+      return data.map((d) => DateTime.tryParse(d as String)?.millisecondsSinceEpoch.toDouble()).toList();
     }
   }
   return [];
@@ -498,9 +478,7 @@ FlTitlesData getTitlesData(
                 xAxisLabelInfo.title,
                 style: xAxisLabelInfo.titleTextStyle,
               ),
-        axisNameSize: xAxisLabelInfo.titleTextStyle?.fontSize != null
-            ? xAxisLabelInfo.titleTextStyle!.fontSize! + 12
-            : null,
+        axisNameSize: xAxisLabelInfo.titleTextStyle?.fontSize ?? xAxisLabelInfo.titleTextStyle!.fontSize! + 12,
         sideTitles: SideTitles(
           getTitlesWidget: (val, _) => getXTitlesWidget != null
               ? getXTitlesWidget(val, _)
@@ -510,7 +488,7 @@ FlTitlesData getTitlesData(
                 ),
           showTitles: xAxisLabelInfo.showLabels,
           interval: xAxisLabelInfo.labelInterval,
-          reservedSize: xAxisLabelInfo.reservedSize,
+          reservedSize: xAxisLabelInfo.reservedSize ?? 22,
         ),
       ),
       rightTitles: AxisTitles(sideTitles: SideTitles(showTitles: false)),
@@ -522,9 +500,7 @@ FlTitlesData getTitlesData(
                 yAxisLabelInfo.title,
                 style: yAxisLabelInfo.titleTextStyle,
               ),
-        axisNameSize: yAxisLabelInfo.titleTextStyle?.fontSize != null
-            ? yAxisLabelInfo.titleTextStyle!.fontSize! + 12
-            : null,
+        axisNameSize: yAxisLabelInfo.titleTextStyle?.fontSize ?? yAxisLabelInfo.titleTextStyle!.fontSize! + 12,
         sideTitles: SideTitles(
           getTitlesWidget: (val, _) => Text(
             formatLabel(yAxisLabelInfo.labelFormatter, val),
@@ -532,7 +508,7 @@ FlTitlesData getTitlesData(
           ),
           showTitles: yAxisLabelInfo.showLabels,
           interval: yAxisLabelInfo.labelInterval,
-          reservedSize: yAxisLabelInfo.reservedSize,
+          reservedSize: yAxisLabelInfo.reservedSize ?? 22,
         ),
       ),
     );
