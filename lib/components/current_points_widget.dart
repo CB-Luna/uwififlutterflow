@@ -1,7 +1,9 @@
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/custom_functions.dart' as functions;
 import 'package:flutter/material.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:provider/provider.dart';
 import 'current_points_model.dart';
 export 'current_points_model.dart';
 
@@ -38,6 +40,8 @@ class _CurrentPointsWidgetState extends State<CurrentPointsWidget> {
 
   @override
   Widget build(BuildContext context) {
+    context.watch<FFAppState>();
+
     return Padding(
       padding: const EdgeInsetsDirectional.fromSTEB(0.0, 60.0, 0.0, 60.0),
       child: Container(
@@ -118,7 +122,8 @@ class _CurrentPointsWidgetState extends State<CurrentPointsWidget> {
                           padding: const EdgeInsetsDirectional.fromSTEB(
                               0.0, 0.0, 0.0, 5.0),
                           child: LinearPercentIndicator(
-                            percent: 0.8,
+                            percent: functions
+                                .porcentjePuntos(FFAppState().globalPuntos),
                             width: MediaQuery.sizeOf(context).width * 0.9,
                             lineHeight: 25.0,
                             animation: true,
@@ -127,7 +132,8 @@ class _CurrentPointsWidgetState extends State<CurrentPointsWidget> {
                             backgroundColor:
                                 FlutterFlowTheme.of(context).tarjetas,
                             center: Text(
-                              '2,500 Points',
+                              functions
+                                  .cantidadPuntos(FFAppState().globalPuntos),
                               style: FlutterFlowTheme.of(context)
                                   .headlineSmall
                                   .override(
@@ -163,7 +169,8 @@ class _CurrentPointsWidgetState extends State<CurrentPointsWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context).primary,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),
@@ -174,7 +181,8 @@ class _CurrentPointsWidgetState extends State<CurrentPointsWidget> {
                                   .bodyMedium
                                   .override(
                                     fontFamily: 'Readex Pro',
-                                    color: FlutterFlowTheme.of(context).primary,
+                                    color: FlutterFlowTheme.of(context)
+                                        .primaryText,
                                     letterSpacing: 0.0,
                                     fontWeight: FontWeight.bold,
                                   ),

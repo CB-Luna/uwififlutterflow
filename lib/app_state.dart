@@ -143,6 +143,12 @@ class FFAppState extends ChangeNotifier {
   void insertAtIndexInChartx(int index, int value) {
     _chartx.insert(index, value);
   }
+
+  int _globalPuntos = 0;
+  int get globalPuntos => _globalPuntos;
+  set globalPuntos(int value) {
+    _globalPuntos = value;
+  }
 }
 
 void _safeInit(Function() initializeField) {

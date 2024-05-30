@@ -29,16 +29,24 @@ class InvoiceRow extends SupabaseDataRow {
   dynamic get customer => getField<dynamic>('customer');
   set customer(dynamic value) => setField<dynamic>('customer', value);
 
-  dynamic get recurringServices => getField<dynamic>('recurring_services');
-  set recurringServices(dynamic value) =>
-      setField<dynamic>('recurring_services', value);
-
-  dynamic get lastBillingPeriod => getField<dynamic>('last_billing_period');
-  set lastBillingPeriod(dynamic value) =>
-      setField<dynamic>('last_billing_period', value);
+  dynamic get services => getField<dynamic>('services');
+  set services(dynamic value) => setField<dynamic>('services', value);
 
   dynamic get currentBillingPeriod =>
       getField<dynamic>('current_billing_period');
   set currentBillingPeriod(dynamic value) =>
       setField<dynamic>('current_billing_period', value);
+
+  int? get paymentFk => getField<int>('payment_fk');
+  set paymentFk(int? value) => setField<int>('payment_fk', value);
+
+  double get balance => getField<double>('balance')!;
+  set balance(double value) => setField<double>('balance', value);
+
+  double get closingBalance => getField<double>('closing_balance')!;
+  set closingBalance(double value) =>
+      setField<double>('closing_balance', value);
+
+  DateTime get dueDate => getField<DateTime>('due_date')!;
+  set dueDate(DateTime value) => setField<DateTime>('due_date', value);
 }
