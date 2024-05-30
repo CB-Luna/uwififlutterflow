@@ -1,6 +1,7 @@
 import '/backend/supabase/supabase.dart';
 import '/components/categories_bottom_sheet_widget.dart';
 import '/components/current_points_widget.dart';
+import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -309,6 +310,13 @@ class _NewHomeMobileWidgetState extends State<NewHomeMobileWidget> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
+                    FlutterFlowAdBanner(
+                      width: MediaQuery.sizeOf(context).width * 1.0,
+                      height: 60.0,
+                      showsTestAd: true,
+                      iOSAdUnitID: 'ca-app-pub-1952833225330412/3708241645',
+                      androidAdUnitID: 'ca-app-pub-1952833225330412/6313142118',
+                    ),
                     if (responsiveVisibility(
                       context: context,
                       tabletLandscape: false,
