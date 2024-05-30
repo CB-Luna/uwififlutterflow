@@ -203,150 +203,154 @@ dynamic deserializeParam<T>(
       case ParamType.SupabaseRow:
         final data = json.decode(param) as Map<String, dynamic>;
         switch (T) {
-          case StateRow:
-            return StateRow(data);
-          case DashboardsViewRow:
-            return DashboardsViewRow(data);
-          case ServiceRow:
-            return ServiceRow(data);
-          case TransactionTypeRow:
-            return TransactionTypeRow(data);
-          case OrderActionRow:
-            return OrderActionRow(data);
-          case UserProfileRow:
-            return UserProfileRow(data);
-          case InvoiceRow:
-            return InvoiceRow(data);
-          case CreditCardRow:
-            return CreditCardRow(data);
-          case SimDetailRow:
-            return SimDetailRow(data);
-          case PaymentRow:
-            return PaymentRow(data);
-          case BarcodeTypeRow:
-            return BarcodeTypeRow(data);
-          case ExecutedProcessTaskRow:
-            return ExecutedProcessTaskRow(data);
-          case CustomerHeatmapViewRow:
-            return CustomerHeatmapViewRow(data);
-          case BillCycleRow:
-            return BillCycleRow(data);
-          case SimCarrierRow:
-            return SimCarrierRow(data);
-          case OrderProductRow:
-            return OrderProductRow(data);
-          case StartDateRow:
-            return StartDateRow(data);
-          case ShipmentRow:
-            return ShipmentRow(data);
-          case BatchStatusRow:
-            return BatchStatusRow(data);
-          case OrdersDashboardsRow:
-            return OrdersDashboardsRow(data);
-          case GroupAdByGenreRow:
-            return GroupAdByGenreRow(data);
-          case InventoryDashboardsRow:
-            return InventoryDashboardsRow(data);
-          case BatchDocumentRow:
-            return BatchDocumentRow(data);
-          case HeatmapInventoryViewRow:
-            return HeatmapInventoryViewRow(data);
-          case ProductCatalogViewRow:
-            return ProductCatalogViewRow(data);
-          case OrderStatusRow:
-            return OrderStatusRow(data);
-          case CustomerRow:
-            return CustomerRow(data);
-          case CustomerNoteRow:
-            return CustomerNoteRow(data);
-          case TransactionAdRow:
-            return TransactionAdRow(data);
-          case OrderProductActionsRow:
-            return OrderProductActionsRow(data);
-          case FullCustomerRow:
-            return FullCustomerRow(data);
-          case ExecutedProcessRow:
-            return ExecutedProcessRow(data);
-          case GatewayTestMobileRow:
-            return GatewayTestMobileRow(data);
-          case CustomerTicketRow:
-            return CustomerTicketRow(data);
+          case TicketRow:
+            return TicketRow(data);
           case RouterDetailRow:
             return RouterDetailRow(data);
+          case InventoryDashboardsRow:
+            return InventoryDashboardsRow(data);
+          case CustomerTicketRow:
+            return CustomerTicketRow(data);
+          case BatchDocumentRow:
+            return BatchDocumentRow(data);
+          case OrderRow:
+            return OrderRow(data);
           case CustomerServiceOrderRow:
             return CustomerServiceOrderRow(data);
-          case BatchSimCardTempRow:
-            return BatchSimCardTempRow(data);
-          case RouterDetailsViewRow:
-            return RouterDetailsViewRow(data);
-          case RoleRow:
-            return RoleRow(data);
-          case SafeShoppingCartItemsRow:
-            return SafeShoppingCartItemsRow(data);
-          case OperatorRow:
-            return OperatorRow(data);
-          case ProductTypeRow:
-            return ProductTypeRow(data);
-          case CustomerStatementRow:
-            return CustomerStatementRow(data);
+          case ProviderPurchaseOrderRow:
+            return ProviderPurchaseOrderRow(data);
+          case SimDetailRow:
+            return SimDetailRow(data);
+          case InventoryProductRow:
+            return InventoryProductRow(data);
+          case OrderStatusRow:
+            return OrderStatusRow(data);
+          case ServiceOrderActionRow:
+            return ServiceOrderActionRow(data);
+          case ProviderPurchaseOrderProductRow:
+            return ProviderPurchaseOrderProductRow(data);
+          case RouterSimConnectionRow:
+            return RouterSimConnectionRow(data);
+          case ProductCatalogViewRow:
+            return ProductCatalogViewRow(data);
+          case CreditCardRow:
+            return CreditCardRow(data);
           case ProviderInvoiceProductRow:
             return ProviderInvoiceProductRow(data);
-          case GestionVideosViewRow:
-            return GestionVideosViewRow(data);
+          case CustomerHeatmapViewRow:
+            return CustomerHeatmapViewRow(data);
+          case ExecutedProcessTaskRow:
+            return ExecutedProcessTaskRow(data);
+          case InventoryProductStatusRow:
+            return InventoryProductStatusRow(data);
+          case ShipmentRow:
+            return ShipmentRow(data);
+          case RoleRow:
+            return RoleRow(data);
+          case InventoryDashboardsViewRow:
+            return InventoryDashboardsViewRow(data);
+          case ExecutedProcessRow:
+            return ExecutedProcessRow(data);
+          case BarcodeTypeRow:
+            return BarcodeTypeRow(data);
+          case ProductRow:
+            return ProductRow(data);
+          case OrdersViewRow:
+            return OrdersViewRow(data);
+          case HeatmapOrdersViewRow:
+            return HeatmapOrdersViewRow(data);
+          case BatchSimCardTempRow:
+            return BatchSimCardTempRow(data);
+          case TransactionAdRow:
+            return TransactionAdRow(data);
+          case DashboardsViewRow:
+            return DashboardsViewRow(data);
+          case FullCustomerRow:
+            return FullCustomerRow(data);
+          case CustomerServiceHistoryRow:
+            return CustomerServiceHistoryRow(data);
+          case OrderProductActionsRow:
+            return OrderProductActionsRow(data);
+          case AdRow:
+            return AdRow(data);
           case CustomerServiceRow:
             return CustomerServiceRow(data);
           case BatchGatewayTempRow:
             return BatchGatewayTempRow(data);
-          case OrderRow:
-            return OrderRow(data);
-          case ProviderPurchaseOrderRow:
-            return ProviderPurchaseOrderRow(data);
+          case BillingProcessRow:
+            return BillingProcessRow(data);
+          case StartDateRow:
+            return StartDateRow(data);
+          case OperatorRow:
+            return OperatorRow(data);
+          case SafeShoppingCartItemsRow:
+            return SafeShoppingCartItemsRow(data);
+          case InvoiceRow:
+            return InvoiceRow(data);
+          case CustomerStatementRow:
+            return CustomerStatementRow(data);
+          case GestionVideosViewRow:
+            return GestionVideosViewRow(data);
           case ProviderInvoiceRow:
             return ProviderInvoiceRow(data);
           case OrderTypeRow:
             return OrderTypeRow(data);
-          case CustomerDashboardsRow:
-            return CustomerDashboardsRow(data);
-          case RouterSimConnectionRow:
-            return RouterSimConnectionRow(data);
-          case ProviderPurchaseOrderProductRow:
-            return ProviderPurchaseOrderProductRow(data);
-          case InventoryProductRow:
-            return InventoryProductRow(data);
+          case SimCarrierRow:
+            return SimCarrierRow(data);
           case UsersRow:
             return UsersRow(data);
-          case ShipmentCompanyRow:
-            return ShipmentCompanyRow(data);
-          case AgrupacionVideosPorGeneroRow:
-            return AgrupacionVideosPorGeneroRow(data);
-          case AddressRow:
-            return AddressRow(data);
-          case InventoryDashboardsViewRow:
-            return InventoryDashboardsViewRow(data);
-          case AdRow:
-            return AdRow(data);
+          case HeatmapInventoryViewRow:
+            return HeatmapInventoryViewRow(data);
+          case OrderProductRow:
+            return OrderProductRow(data);
+          case CustomerDashboardsRow:
+            return CustomerDashboardsRow(data);
+          case CustomerRow:
+            return CustomerRow(data);
+          case TransactionTypeRow:
+            return TransactionTypeRow(data);
           case CustomerTransactionRow:
             return CustomerTransactionRow(data);
-          case ProductRow:
-            return ProductRow(data);
-          case TicketRow:
-            return TicketRow(data);
-          case OrdersViewRow:
-            return OrdersViewRow(data);
-          case SimsCardTestMobileRow:
-            return SimsCardTestMobileRow(data);
+          case BatchStatusRow:
+            return BatchStatusRow(data);
+          case AgrupacionVideosPorGeneroRow:
+            return AgrupacionVideosPorGeneroRow(data);
+          case PaymentRow:
+            return PaymentRow(data);
           case InventoryLocationRow:
             return InventoryLocationRow(data);
+          case CustomerNoteRow:
+            return CustomerNoteRow(data);
+          case ShipmentCompanyRow:
+            return ShipmentCompanyRow(data);
+          case ProductTypeRow:
+            return ProductTypeRow(data);
+          case AddressRow:
+            return AddressRow(data);
+          case SimsCardTestMobileRow:
+            return SimsCardTestMobileRow(data);
+          case GroupAdByGenreRow:
+            return GroupAdByGenreRow(data);
+          case OrdersDashboardsRow:
+            return OrdersDashboardsRow(data);
+          case BillCycleRow:
+            return BillCycleRow(data);
           case ProviderRow:
             return ProviderRow(data);
           case GenreAdRow:
             return GenreAdRow(data);
-          case ServiceOrderActionRow:
-            return ServiceOrderActionRow(data);
-          case BillingProcessRow:
-            return BillingProcessRow(data);
-          case InventoryProductStatusRow:
-            return InventoryProductStatusRow(data);
+          case UserProfileRow:
+            return UserProfileRow(data);
+          case RouterDetailsViewRow:
+            return RouterDetailsViewRow(data);
+          case ServiceRow:
+            return ServiceRow(data);
+          case StateRow:
+            return StateRow(data);
+          case GatewayTestMobileRow:
+            return GatewayTestMobileRow(data);
+          case OrderActionRow:
+            return OrderActionRow(data);
           default:
             return null;
         }

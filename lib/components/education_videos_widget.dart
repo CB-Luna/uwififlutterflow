@@ -329,24 +329,8 @@ class _EducationVideosWidgetState extends State<EducationVideosWidget> {
                                 header: Row(
                                   mainAxisSize: MainAxisSize.max,
                                   children: [
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 10.0, 0.0),
-                                      child: Container(
-                                        width: 30.0,
-                                        height: 30.0,
-                                        clipBehavior: Clip.antiAlias,
-                                        decoration: const BoxDecoration(
-                                          shape: BoxShape.circle,
-                                        ),
-                                        child: Image.network(
-                                          'https://picsum.photos/seed/913/600',
-                                          fit: BoxFit.cover,
-                                        ),
-                                      ),
-                                    ),
                                     Text(
-                                      'Company',
+                                      'Next Eduaction videos',
                                       style: FlutterFlowTheme.of(context)
                                           .displaySmall
                                           .override(
@@ -357,57 +341,73 @@ class _EducationVideosWidgetState extends State<EducationVideosWidget> {
                                             useGoogleFonts: false,
                                           ),
                                     ),
-                                    const Padding(
-                                      padding: EdgeInsetsDirectional.fromSTEB(
-                                          5.0, 0.0, 0.0, 0.0),
-                                      child: Icon(
-                                        Icons.verified,
-                                        color: Colors.white,
-                                        size: 15.0,
-                                      ),
-                                    ),
                                   ],
                                 ),
                                 collapsed: Container(
                                   width: MediaQuery.sizeOf(context).width * 1.0,
-                                  height: 40.0,
+                                  height: 20.0,
                                   decoration: const BoxDecoration(
                                     color: Color(0x00FFFFFF),
                                   ),
-                                  child: Padding(
-                                    padding: const EdgeInsetsDirectional.fromSTEB(
-                                        0.0, 8.0, 0.0, 15.0),
-                                    child: Text(
-                                      'Lorem ipsum dolor sit amet, consectetur adipiscing...',
-                                      maxLines: 1,
-                                      style: FlutterFlowTheme.of(context)
-                                          .bodyMedium
-                                          .override(
-                                            fontFamily: 'Readex Pro',
-                                            color: Colors.white,
-                                            letterSpacing: 0.0,
-                                          ),
-                                    ),
-                                  ),
                                 ),
-                                expanded: Column(
-                                  mainAxisSize: MainAxisSize.max,
-                                  children: [
-                                    Padding(
-                                      padding: const EdgeInsetsDirectional.fromSTEB(
-                                          0.0, 0.0, 0.0, 15.0),
-                                      child: Text(
-                                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. \n#Hashtag1 #Hashtag2 #Hashtag3',
-                                        style: FlutterFlowTheme.of(context)
-                                            .bodyMedium
-                                            .override(
-                                              fontFamily: 'Readex Pro',
-                                              color: Colors.white,
-                                              letterSpacing: 0.0,
-                                            ),
-                                      ),
+                                expanded: FutureBuilder<List<AdRow>>(
+                                  future: AdTable().queryRows(
+                                    queryFn: (q) => q.eq(
+                                      'genre_id',
+                                      5,
                                     ),
-                                  ],
+                                    limit: 10,
+                                  ),
+                                  builder: (context, snapshot) {
+                                    // Customize what your widget looks like when it's loading.
+                                    if (!snapshot.hasData) {
+                                      return Center(
+                                        child: SizedBox(
+                                          width: 50.0,
+                                          height: 50.0,
+                                          child: SpinKitPulse(
+                                            color: FlutterFlowTheme.of(context)
+                                                .primary,
+                                            size: 50.0,
+                                          ),
+                                        ),
+                                      );
+                                    }
+                                    List<AdRow> rowAdRowList = snapshot.data!;
+                                    return SingleChildScrollView(
+                                      scrollDirection: Axis.horizontal,
+                                      child: Row(
+                                        mainAxisSize: MainAxisSize.max,
+                                        children: List.generate(
+                                            rowAdRowList.length, (rowIndex) {
+                                          final rowAdRow =
+                                              rowAdRowList[rowIndex];
+                                          return Padding(
+                                            padding:
+                                                const EdgeInsetsDirectional.fromSTEB(
+                                                    0.0, 0.0, 0.0, 15.0),
+                                            child: Container(
+                                              width: 90.0,
+                                              height: 120.0,
+                                              decoration: BoxDecoration(
+                                                color:
+                                                    FlutterFlowTheme.of(context)
+                                                        .secondaryBackground,
+                                                image: DecorationImage(
+                                                  fit: BoxFit.cover,
+                                                  image: Image.network(
+                                                    rowAdRow.posterPath!,
+                                                  ).image,
+                                                ),
+                                                borderRadius:
+                                                    BorderRadius.circular(10.0),
+                                              ),
+                                            ),
+                                          );
+                                        }).divide(const SizedBox(width: 20.0)),
+                                      ),
+                                    );
+                                  },
                                 ),
                                 theme: const ExpandableThemeData(
                                   tapHeaderToExpand: true,

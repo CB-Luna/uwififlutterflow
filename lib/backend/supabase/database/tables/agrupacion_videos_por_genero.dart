@@ -27,4 +27,7 @@ class AgrupacionVideosPorGeneroRow extends SupabaseDataRow {
 
   dynamic get videos => getField<dynamic>('videos');
   set videos(dynamic value) => setField<dynamic>('videos', value);
+
+  int? get genreId => getField<int>('genre_id');
+  set genreId(int? value) => setField<int>('genre_id', value);
 }
