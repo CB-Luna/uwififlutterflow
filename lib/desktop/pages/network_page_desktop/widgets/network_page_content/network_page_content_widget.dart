@@ -36,6 +36,7 @@ class _NetworkPageContentWidgetState extends State<NetworkPageContentWidget> {
     _model.textController2 ??= TextEditingController();
     _model.textFieldFocusNode2 ??= FocusNode();
 
+    _model.switchValue = true;
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -428,7 +429,7 @@ class _NetworkPageContentWidgetState extends State<NetworkPageContentWidget> {
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
               child: Switch.adaptive(
-                value: _model.switchValue ??= true,
+                value: _model.switchValue!,
                 onChanged: (newValue) async {
                   setState(() => _model.switchValue = newValue);
                 },
