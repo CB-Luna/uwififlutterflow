@@ -1,6 +1,7 @@
 import '/backend/supabase/supabase.dart';
 import '/components/categories_bottom_sheet_widget.dart';
 import '/components/current_points_widget.dart';
+import '/components/points_earned_animation_widget.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -176,13 +177,15 @@ class _TechnologyVideosWidgetState extends State<TechnologyVideosWidget> {
                             child: FlutterFlowIconButton(
                               borderRadius: 20.0,
                               buttonSize: 40.0,
-                              fillColor: FlutterFlowTheme.of(context).primary,
                               icon: const FaIcon(
                                 FontAwesomeIcons.coins,
                                 color: Colors.white,
                                 size: 22.0,
                               ),
                               onPressed: () async {
+                                FFAppState().globalPuntos =
+                                    FFAppState().globalPuntos + 30;
+                                setState(() {});
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
                                   backgroundColor: Colors.transparent,
@@ -204,7 +207,6 @@ class _TechnologyVideosWidgetState extends State<TechnologyVideosWidget> {
                               borderColor: Colors.transparent,
                               borderRadius: 10.0,
                               buttonSize: 40.0,
-                              fillColor: FlutterFlowTheme.of(context).primary,
                               icon: const FaIcon(
                                 FontAwesomeIcons.gripHorizontal,
                                 color: Colors.white,
@@ -229,7 +231,7 @@ class _TechnologyVideosWidgetState extends State<TechnologyVideosWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 25.0, 0.0, 0.0),
                             child: Icon(
-                              Icons.favorite_rounded,
+                              Icons.favorite_border_rounded,
                               color: Colors.white,
                               size: 30.0,
                             ),
@@ -273,13 +275,34 @@ class _TechnologyVideosWidgetState extends State<TechnologyVideosWidget> {
                                   ),
                             ),
                           ),
-                          const Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 25.0, 0.0, 0.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.share,
-                              color: Colors.white,
-                              size: 30.0,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  isDismissible: false,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: const PointsEarnedAnimationWidget(),
+                                    );
+                                  },
+                                ).then((value) => safeSetState(() {}));
+                              },
+                              child: const FaIcon(
+                                FontAwesomeIcons.share,
+                                color: Colors.white,
+                                size: 30.0,
+                              ),
                             ),
                           ),
                           Padding(

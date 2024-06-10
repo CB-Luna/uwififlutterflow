@@ -23,6 +23,7 @@ class _DeviceSettingsWidgetState extends State<DeviceSettingsWidget> {
     super.initState();
     _model = createModel(context, () => DeviceSettingsModel());
 
+    _model.switchValue = true;
     WidgetsBinding.instance.addPostFrameCallback((_) => setState(() {}));
   }
 
@@ -172,7 +173,7 @@ class _DeviceSettingsWidgetState extends State<DeviceSettingsWidget> {
                     padding:
                         const EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 20.0, 0.0),
                     child: Switch.adaptive(
-                      value: _model.switchValue ??= true,
+                      value: _model.switchValue!,
                       onChanged: (newValue) async {
                         setState(() => _model.switchValue = newValue);
                       },

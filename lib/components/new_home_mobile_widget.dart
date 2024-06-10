@@ -1,6 +1,7 @@
 import '/backend/supabase/supabase.dart';
 import '/components/categories_bottom_sheet_widget.dart';
 import '/components/current_points_widget.dart';
+import '/components/points_earned_animation_widget.dart';
 import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -91,17 +92,22 @@ class _NewHomeMobileWidgetState extends State<NewHomeMobileWidget> {
                       itemCount: pageViewAdRowList.length,
                       itemBuilder: (context, pageViewIndex) {
                         final pageViewAdRow = pageViewAdRowList[pageViewIndex];
-                        return FlutterFlowVideoPlayer(
-                          path: pageViewAdRow.video!,
-                          videoType: VideoType.network,
-                          width: MediaQuery.sizeOf(context).width * 1.0,
-                          height: MediaQuery.sizeOf(context).height * 1.0,
-                          autoPlay: true,
-                          looping: true,
-                          showControls: false,
-                          allowFullScreen: true,
-                          allowPlaybackSpeedMenu: false,
-                          pauseOnNavigate: false,
+                        return Stack(
+                          alignment: const AlignmentDirectional(1.0, -1.0),
+                          children: [
+                            FlutterFlowVideoPlayer(
+                              path: pageViewAdRow.video!,
+                              videoType: VideoType.network,
+                              width: MediaQuery.sizeOf(context).width * 1.0,
+                              height: MediaQuery.sizeOf(context).height * 1.0,
+                              autoPlay: true,
+                              looping: true,
+                              showControls: false,
+                              allowFullScreen: true,
+                              allowPlaybackSpeedMenu: false,
+                              pauseOnNavigate: false,
+                            ),
+                          ],
                         );
                       },
                     ),
@@ -174,17 +180,15 @@ class _NewHomeMobileWidgetState extends State<NewHomeMobileWidget> {
                             child: FlutterFlowIconButton(
                               borderRadius: 20.0,
                               buttonSize: 40.0,
-                              fillColor: FlutterFlowTheme.of(context).primary,
                               icon: const FaIcon(
                                 FontAwesomeIcons.coins,
                                 color: Colors.white,
                                 size: 22.0,
                               ),
                               onPressed: () async {
-                                setState(() {
-                                  FFAppState().globalPuntos =
-                                      FFAppState().globalPuntos + 30;
-                                });
+                                FFAppState().globalPuntos =
+                                    FFAppState().globalPuntos + 30;
+                                setState(() {});
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
                                   backgroundColor: Colors.transparent,
@@ -206,7 +210,6 @@ class _NewHomeMobileWidgetState extends State<NewHomeMobileWidget> {
                               borderColor: Colors.transparent,
                               borderRadius: 10.0,
                               buttonSize: 40.0,
-                              fillColor: FlutterFlowTheme.of(context).primary,
                               icon: const FaIcon(
                                 FontAwesomeIcons.gripHorizontal,
                                 color: Colors.white,
@@ -231,7 +234,7 @@ class _NewHomeMobileWidgetState extends State<NewHomeMobileWidget> {
                             padding: EdgeInsetsDirectional.fromSTEB(
                                 0.0, 25.0, 0.0, 0.0),
                             child: Icon(
-                              Icons.favorite_rounded,
+                              Icons.favorite_border_rounded,
                               color: Colors.white,
                               size: 30.0,
                             ),
@@ -275,13 +278,34 @@ class _NewHomeMobileWidgetState extends State<NewHomeMobileWidget> {
                                   ),
                             ),
                           ),
-                          const Padding(
-                            padding: EdgeInsetsDirectional.fromSTEB(
+                          Padding(
+                            padding: const EdgeInsetsDirectional.fromSTEB(
                                 0.0, 25.0, 0.0, 0.0),
-                            child: FaIcon(
-                              FontAwesomeIcons.share,
-                              color: Colors.white,
-                              size: 30.0,
+                            child: InkWell(
+                              splashColor: Colors.transparent,
+                              focusColor: Colors.transparent,
+                              hoverColor: Colors.transparent,
+                              highlightColor: Colors.transparent,
+                              onTap: () async {
+                                await showModalBottomSheet(
+                                  isScrollControlled: true,
+                                  backgroundColor: Colors.transparent,
+                                  isDismissible: false,
+                                  enableDrag: false,
+                                  context: context,
+                                  builder: (context) {
+                                    return Padding(
+                                      padding: MediaQuery.viewInsetsOf(context),
+                                      child: const PointsEarnedAnimationWidget(),
+                                    );
+                                  },
+                                ).then((value) => safeSetState(() {}));
+                              },
+                              child: const FaIcon(
+                                FontAwesomeIcons.share,
+                                color: Colors.white,
+                                size: 30.0,
+                              ),
                             ),
                           ),
                           Padding(
@@ -310,12 +334,16 @@ class _NewHomeMobileWidgetState extends State<NewHomeMobileWidget> {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    FlutterFlowAdBanner(
-                      width: MediaQuery.sizeOf(context).width * 1.0,
-                      height: 60.0,
-                      showsTestAd: true,
-                      iOSAdUnitID: 'ca-app-pub-1952833225330412/3708241645',
-                      androidAdUnitID: 'ca-app-pub-1952833225330412/6313142118',
+                    Align(
+                      alignment: const AlignmentDirectional(0.0, 1.0),
+                      child: FlutterFlowAdBanner(
+                        width: MediaQuery.sizeOf(context).width * 1.0,
+                        height: 60.0,
+                        showsTestAd: true,
+                        iOSAdUnitID: 'ca-app-pub-1952833225330412/3708241645',
+                        androidAdUnitID:
+                            'ca-app-pub-1952833225330412/6313142118',
+                      ),
                     ),
                     if (responsiveVisibility(
                       context: context,
