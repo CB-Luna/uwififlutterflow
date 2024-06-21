@@ -7,10 +7,6 @@ class PasswordRecoveryCopyModel
   ///  State fields for stateful widgets in this page.
 
   final unfocusNode = FocusNode();
-  // State field(s) for emailAddress widget.
-  FocusNode? emailAddressFocusNode;
-  TextEditingController? emailAddressTextController;
-  String? Function(BuildContext, String?)? emailAddressTextControllerValidator;
   // State field(s) for password widget.
   FocusNode? passwordFocusNode1;
   TextEditingController? passwordTextController1;
@@ -31,9 +27,6 @@ class PasswordRecoveryCopyModel
   @override
   void dispose() {
     unfocusNode.dispose();
-    emailAddressFocusNode?.dispose();
-    emailAddressTextController?.dispose();
-
     passwordFocusNode1?.dispose();
     passwordTextController1?.dispose();
 
