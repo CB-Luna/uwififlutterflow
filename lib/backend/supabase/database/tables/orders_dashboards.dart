@@ -24,10 +24,6 @@ class OrdersDashboardsRow extends SupabaseDataRow {
   int? get ordersTotals => getField<int>('orders_totals');
   set ordersTotals(int? value) => setField<int>('orders_totals', value);
 
-  double? get shippingTotals => getField<double>('shipping_totals');
-  set shippingTotals(double? value) =>
-      setField<double>('shipping_totals', value);
-
   double? get testingTotals => getField<double>('testing_totals');
   set testingTotals(double? value) => setField<double>('testing_totals', value);
 

@@ -8,10 +8,10 @@ class TimerTestModel extends FlutterFlowModel<TimerTestWidget> {
   ///  State fields for stateful widgets in this component.
 
   // State field(s) for Timer widget.
-  final timerInitialTimeMs = 60000;
-  int timerMilliseconds = 60000;
+  final timerInitialTimeMs = 0;
+  int timerMilliseconds = 0;
   String timerValue = StopWatchTimer.getDisplayTime(
-    60000,
+    0,
     hours: false,
     minute: false,
     milliSecond: false,

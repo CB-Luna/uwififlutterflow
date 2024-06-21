@@ -164,7 +164,7 @@ class _ProfileNewWidgetState extends State<ProfileNewWidget>
             Padding(
               padding: const EdgeInsetsDirectional.fromSTEB(24.0, 4.0, 0.0, 16.0),
               child: Text(
-                'johndoe@mail.com',
+                currentUserEmail,
                 style: FlutterFlowTheme.of(context).labelMedium.override(
                       fontFamily: 'Readex Pro',
                       letterSpacing: 0.0,

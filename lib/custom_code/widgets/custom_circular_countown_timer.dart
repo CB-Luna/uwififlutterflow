@@ -1,4 +1,5 @@
 // Automatic FlutterFlow imports
+import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -10,30 +11,37 @@ import 'package:flutter/material.dart';
 
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 
-class CustomCircularCountDownTimer extends StatefulWidget {
-  const CustomCircularCountDownTimer({Key? key}) : super(key: key);
+class CustomCircularCountownTimer extends StatefulWidget {
+  const CustomCircularCountownTimer({
+    super.key,
+    this.width,
+    this.height,
+    required this.duration,
+  });
+
+  final double? width;
+  final double? height;
+  final int duration;
 
   @override
-  _CustomCircularCountDownTimerState createState() =>
-      _CustomCircularCountDownTimerState();
+  State<CustomCircularCountownTimer> createState() =>
+      _CustomCircularCountownTimerState();
 }
 
-class _CustomCircularCountDownTimerState
-    extends State<CustomCircularCountDownTimer> {
-  final int _duration = 10;
+class _CustomCircularCountownTimerState
+    extends State<CustomCircularCountownTimer> {
   final CountDownController _controller = CountDownController();
-
   @override
   Widget build(BuildContext context) {
     return CircularCountDownTimer(
-      duration: _duration,
+      duration: widget.duration,
       initialDuration: 0,
       controller: _controller,
       width: MediaQuery.of(context).size.width / 2,
       height: MediaQuery.of(context).size.height / 2,
       ringColor: Colors.grey[300]!,
       ringGradient: null,
-      fillColor: Colors.purpleAccent[100]!,
+      fillColor: Colors.blue[100]!,
       fillGradient: null,
       backgroundColor: Colors.purple[500],
       backgroundGradient: null,
@@ -45,7 +53,7 @@ class _CustomCircularCountDownTimerState
       isReverse: false,
       isReverseAnimation: false,
       isTimerTextShown: true,
-      autoStart: false,
+      autoStart: true,
       onStart: () {
         debugPrint('Countdown Started');
       },

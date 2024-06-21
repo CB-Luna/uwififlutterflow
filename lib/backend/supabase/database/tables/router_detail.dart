@@ -52,4 +52,7 @@ class RouterDetailRow extends SupabaseDataRow {
 
   String? get ip => getField<String>('ip');
   set ip(String? value) => setField<String>('ip', value);
+
+  bool get power => getField<bool>('power')!;
+  set power(bool value) => setField<bool>('power', value);
 }

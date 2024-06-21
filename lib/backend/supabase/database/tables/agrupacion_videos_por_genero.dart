@@ -30,4 +30,7 @@ class AgrupacionVideosPorGeneroRow extends SupabaseDataRow {
 
   int? get genreId => getField<int>('genre_id');
   set genreId(int? value) => setField<int>('genre_id', value);
+
+  String? get genrePoster => getField<String>('genre_poster');
+  set genrePoster(String? value) => setField<String>('genre_poster', value);
 }

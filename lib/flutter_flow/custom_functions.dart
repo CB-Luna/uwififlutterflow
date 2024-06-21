@@ -8,6 +8,7 @@ import 'package:timeago/timeago.dart' as timeago;
 import 'lat_lng.dart';
 import 'place.dart';
 import 'uploaded_file.dart';
+import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/auth/supabase_auth/auth_util.dart';
 
@@ -16,7 +17,7 @@ double porcentjePuntos(int puntos) {
 }
 
 String cantidadPuntos(int puntos) {
-  var x = puntos / 100;
+  var x = puntos / 1000;
   NumberFormat formatter = NumberFormat('#,###.##');
   String formattedNumber = formatter.format(x);
   return "\$" + formattedNumber + " Dlls"; // Output: 1,234,567

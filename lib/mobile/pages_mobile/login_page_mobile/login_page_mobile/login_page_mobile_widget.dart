@@ -1,5 +1,7 @@
 import '/auth/supabase_auth/auth_util.dart';
 import '/backend/api_requests/api_calls.dart';
+import '/backend/schema/structs/index.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_button_tabbar.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -49,11 +51,11 @@ class _LoginPageMobileWidgetState extends State<LoginPageMobileWidget>
     _model.emailAddressTextController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
 
-    _model.passwordTextController1 ??= TextEditingController();
-    _model.passwordFocusNode1 ??= FocusNode();
+    _model.passwordTextController ??= TextEditingController();
+    _model.passwordFocusNode ??= FocusNode();
 
-    _model.passwordTextController2 ??= TextEditingController();
-    _model.passwordFocusNode2 ??= FocusNode();
+    _model.confirmPasswordTextController ??= TextEditingController();
+    _model.confirmPasswordFocusNode ??= FocusNode();
 
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(
@@ -574,12 +576,90 @@ class _LoginPageMobileWidgetState extends State<LoginPageMobileWidget>
                                                         .passwordLoginTextController
                                                         .text,
                                                   );
+
                                                   if ((_model.apiResulta11
                                                           ?.succeeded ??
                                                       true)) {
-                                                    context.pushNamedAuth(
-                                                        'NewHome',
-                                                        context.mounted);
+                                                    _model.resposeUserData =
+                                                        await CustomerTable()
+                                                            .queryRows(
+                                                      queryFn: (q) => q.eq(
+                                                        'auth_id',
+                                                        currentUserUid,
+                                                      ),
+                                                    );
+                                                    if ((_model.resposeUserData !=
+                                                                null &&
+                                                            (_model.resposeUserData)!
+                                                                .isNotEmpty) ==
+                                                        true) {
+                                                      FFAppState().userData =
+                                                          UserDataStruct(
+                                                        customerId: _model
+                                                            .resposeUserData
+                                                            ?.first
+                                                            .customerId,
+                                                        createdAt: _model
+                                                            .resposeUserData
+                                                            ?.first
+                                                            .createdAt
+                                                            .toString(),
+                                                        firstName: _model
+                                                            .resposeUserData
+                                                            ?.first
+                                                            .firstName,
+                                                        lastName: _model
+                                                            .resposeUserData
+                                                            ?.first
+                                                            .lastName,
+                                                        status: _model
+                                                            .resposeUserData
+                                                            ?.first
+                                                            .status,
+                                                        email: _model
+                                                            .resposeUserData
+                                                            ?.first
+                                                            .email,
+                                                        mobilePhone: _model
+                                                            .resposeUserData
+                                                            ?.first
+                                                            .mobilePhone,
+                                                        authId: _model
+                                                            .resposeUserData
+                                                            ?.first
+                                                            .authId,
+                                                      );
+
+                                                      context.pushNamedAuth(
+                                                          'NewHome',
+                                                          context.mounted);
+                                                    } else {
+                                                      ScaffoldMessenger.of(
+                                                              context)
+                                                          .showSnackBar(
+                                                        SnackBar(
+                                                          content: Text(
+                                                            'List is Empty',
+                                                            style: TextStyle(
+                                                              color: FlutterFlowTheme
+                                                                      .of(context)
+                                                                  .error,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w500,
+                                                              fontSize: 14.0,
+                                                            ),
+                                                          ),
+                                                          duration: const Duration(
+                                                              milliseconds:
+                                                                  4000),
+                                                          backgroundColor:
+                                                              FlutterFlowTheme.of(
+                                                                      context)
+                                                                  .secondary,
+                                                        ),
+                                                      );
+                                                    }
                                                   } else {
                                                     ScaffoldMessenger.of(
                                                             context)
@@ -891,15 +971,15 @@ class _LoginPageMobileWidgetState extends State<LoginPageMobileWidget>
                                                 const EdgeInsetsDirectional.fromSTEB(
                                                     8.0, 0.0, 8.0, 16.0),
                                             child: TextFormField(
-                                              controller: _model
-                                                  .passwordTextController1,
+                                              controller:
+                                                  _model.passwordTextController,
                                               focusNode:
-                                                  _model.passwordFocusNode1,
+                                                  _model.passwordFocusNode,
                                               autofocus: false,
                                               textCapitalization:
                                                   TextCapitalization.sentences,
                                               obscureText:
-                                                  !_model.passwordVisibility1,
+                                                  !_model.passwordVisibility,
                                               decoration: InputDecoration(
                                                 labelText: 'Password',
                                                 labelStyle:
@@ -976,14 +1056,14 @@ class _LoginPageMobileWidgetState extends State<LoginPageMobileWidget>
                                                 suffixIcon: InkWell(
                                                   onTap: () => setState(
                                                     () => _model
-                                                            .passwordVisibility1 =
+                                                            .passwordVisibility =
                                                         !_model
-                                                            .passwordVisibility1,
+                                                            .passwordVisibility,
                                                   ),
                                                   focusNode: FocusNode(
                                                       skipTraversal: true),
                                                   child: Icon(
-                                                    _model.passwordVisibility1
+                                                    _model.passwordVisibility
                                                         ? Icons
                                                             .visibility_outlined
                                                         : Icons
@@ -1007,7 +1087,7 @@ class _LoginPageMobileWidgetState extends State<LoginPageMobileWidget>
                                                     useGoogleFonts: false,
                                                   ),
                                               validator: _model
-                                                  .passwordTextController1Validator
+                                                  .passwordTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -1017,14 +1097,14 @@ class _LoginPageMobileWidgetState extends State<LoginPageMobileWidget>
                                                     8.0, 0.0, 8.0, 16.0),
                                             child: TextFormField(
                                               controller: _model
-                                                  .passwordTextController2,
-                                              focusNode:
-                                                  _model.passwordFocusNode2,
+                                                  .confirmPasswordTextController,
+                                              focusNode: _model
+                                                  .confirmPasswordFocusNode,
                                               autofocus: false,
                                               textCapitalization:
                                                   TextCapitalization.sentences,
-                                              obscureText:
-                                                  !_model.passwordVisibility2,
+                                              obscureText: !_model
+                                                  .confirmPasswordVisibility,
                                               decoration: InputDecoration(
                                                 labelText: 'Confirm Password',
                                                 labelStyle:
@@ -1101,14 +1181,14 @@ class _LoginPageMobileWidgetState extends State<LoginPageMobileWidget>
                                                 suffixIcon: InkWell(
                                                   onTap: () => setState(
                                                     () => _model
-                                                            .passwordVisibility2 =
+                                                            .confirmPasswordVisibility =
                                                         !_model
-                                                            .passwordVisibility2,
+                                                            .confirmPasswordVisibility,
                                                   ),
                                                   focusNode: FocusNode(
                                                       skipTraversal: true),
                                                   child: Icon(
-                                                    _model.passwordVisibility2
+                                                    _model.confirmPasswordVisibility
                                                         ? Icons
                                                             .visibility_outlined
                                                         : Icons
@@ -1132,7 +1212,7 @@ class _LoginPageMobileWidgetState extends State<LoginPageMobileWidget>
                                                     useGoogleFonts: false,
                                                   ),
                                               validator: _model
-                                                  .passwordTextController2Validator
+                                                  .confirmPasswordTextControllerValidator
                                                   .asValidator(context),
                                             ),
                                           ),
@@ -1144,8 +1224,44 @@ class _LoginPageMobileWidgetState extends State<LoginPageMobileWidget>
                                                   .fromSTEB(
                                                       0.0, 0.0, 0.0, 16.0),
                                               child: FFButtonWidget(
-                                                onPressed: () {
-                                                  print('Button pressed ...');
+                                                onPressed: () async {
+                                                  GoRouter.of(context)
+                                                      .prepareAuthEvent();
+                                                  if (_model
+                                                          .passwordTextController
+                                                          .text !=
+                                                      _model
+                                                          .confirmPasswordTextController
+                                                          .text) {
+                                                    ScaffoldMessenger.of(
+                                                            context)
+                                                        .showSnackBar(
+                                                      const SnackBar(
+                                                        content: Text(
+                                                          'Passwords don\'t match!',
+                                                        ),
+                                                      ),
+                                                    );
+                                                    return;
+                                                  }
+
+                                                  final user = await authManager
+                                                      .createAccountWithEmail(
+                                                    context,
+                                                    _model
+                                                        .emailAddressTextController
+                                                        .text,
+                                                    _model
+                                                        .passwordTextController
+                                                        .text,
+                                                  );
+                                                  if (user == null) {
+                                                    return;
+                                                  }
+
+                                                  context.pushNamedAuth(
+                                                      'login_page',
+                                                      context.mounted);
                                                 },
                                                 text: 'Sign Up',
                                                 options: FFButtonOptions(

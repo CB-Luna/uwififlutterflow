@@ -1,4 +1,5 @@
 // Automatic FlutterFlow imports
+import '/backend/schema/structs/index.dart';
 import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -57,7 +58,7 @@ class _SatisfyingSwitchState extends State<SatisfyingSwitch> {
           onColor: widget.onColor!,
           offColor: widget.offColor!,
           onChange: (value) async {
-            await widget.onChange?.call();
+            await widget.onChange.call();
           },
         ),
       ),

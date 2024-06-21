@@ -58,6 +58,9 @@ class OrdersViewRow extends SupabaseDataRow {
   set orderFinished(DateTime? value) =>
       setField<DateTime>('order_finished', value);
 
+  dynamic get status => getField<dynamic>('status');
+  set status(dynamic value) => setField<dynamic>('status', value);
+
   String? get orderCreatorId => getField<String>('order_creator_id');
   set orderCreatorId(String? value) =>
       setField<String>('order_creator_id', value);
@@ -85,4 +88,7 @@ class OrdersViewRow extends SupabaseDataRow {
 
   dynamic get orderActions => getField<dynamic>('order_actions');
   set orderActions(dynamic value) => setField<dynamic>('order_actions', value);
+
+  dynamic get providers => getField<dynamic>('providers');
+  set providers(dynamic value) => setField<dynamic>('providers', value);
 }

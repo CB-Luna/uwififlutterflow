@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import '/backend/schema/structs/index.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class FFAppState extends ChangeNotifier {
@@ -93,26 +94,26 @@ class FFAppState extends ChangeNotifier {
   }
 
   void addToCharty(int value) {
-    _charty.add(value);
+    charty.add(value);
   }
 
   void removeFromCharty(int value) {
-    _charty.remove(value);
+    charty.remove(value);
   }
 
   void removeAtIndexFromCharty(int index) {
-    _charty.removeAt(index);
+    charty.removeAt(index);
   }
 
   void updateChartyAtIndex(
     int index,
     int Function(int) updateFn,
   ) {
-    _charty[index] = updateFn(_charty[index]);
+    charty[index] = updateFn(_charty[index]);
   }
 
   void insertAtIndexInCharty(int index, int value) {
-    _charty.insert(index, value);
+    charty.insert(index, value);
   }
 
   List<int> _chartx = [];
@@ -122,32 +123,42 @@ class FFAppState extends ChangeNotifier {
   }
 
   void addToChartx(int value) {
-    _chartx.add(value);
+    chartx.add(value);
   }
 
   void removeFromChartx(int value) {
-    _chartx.remove(value);
+    chartx.remove(value);
   }
 
   void removeAtIndexFromChartx(int index) {
-    _chartx.removeAt(index);
+    chartx.removeAt(index);
   }
 
   void updateChartxAtIndex(
     int index,
     int Function(int) updateFn,
   ) {
-    _chartx[index] = updateFn(_chartx[index]);
+    chartx[index] = updateFn(_chartx[index]);
   }
 
   void insertAtIndexInChartx(int index, int value) {
-    _chartx.insert(index, value);
+    chartx.insert(index, value);
   }
 
   int _globalPuntos = 0;
   int get globalPuntos => _globalPuntos;
   set globalPuntos(int value) {
     _globalPuntos = value;
+  }
+
+  UserDataStruct _userData = UserDataStruct();
+  UserDataStruct get userData => _userData;
+  set userData(UserDataStruct value) {
+    _userData = value;
+  }
+
+  void updateUserDataStruct(Function(UserDataStruct) updateFn) {
+    updateFn(_userData);
   }
 }
 
