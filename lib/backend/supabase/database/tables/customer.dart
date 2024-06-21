@@ -34,4 +34,7 @@ class CustomerRow extends SupabaseDataRow {
 
   String get mobilePhone => getField<String>('mobile_phone')!;
   set mobilePhone(String value) => setField<String>('mobile_phone', value);
+
+  String? get authId => getField<String>('auth_id');
+  set authId(String? value) => setField<String>('auth_id', value);
 }

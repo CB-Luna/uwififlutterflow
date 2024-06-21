@@ -32,4 +32,10 @@ class BillingProcessRow extends SupabaseDataRow {
 
   double get totalBilled => getField<double>('total_billed')!;
   set totalBilled(double value) => setField<double>('total_billed', value);
+
+  DateTime get billingDate => getField<DateTime>('billing_date')!;
+  set billingDate(DateTime value) => setField<DateTime>('billing_date', value);
+
+  List<int> get customers => getListField<int>('customers');
+  set customers(List<int> value) => setListField<int>('customers', value);
 }

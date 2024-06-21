@@ -1,4 +1,5 @@
 import '/backend/api_requests/api_calls.dart';
+import '/backend/supabase/supabase.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import 'login_page_mobile_widget.dart' show LoginPageMobileWidget;
 import 'package:flutter/material.dart';
@@ -23,26 +24,29 @@ class LoginPageMobileModel extends FlutterFlowModel<LoginPageMobileWidget> {
   String? Function(BuildContext, String?)? passwordLoginTextControllerValidator;
   // Stores action output result for [Backend Call - API (LoginAPI)] action in Button widget.
   ApiCallResponse? apiResulta11;
+  // Stores action output result for [Backend Call - Query Rows] action in Button widget.
+  List<CustomerRow>? resposeUserData;
   // State field(s) for emailAddress widget.
   FocusNode? emailAddressFocusNode;
   TextEditingController? emailAddressTextController;
   String? Function(BuildContext, String?)? emailAddressTextControllerValidator;
   // State field(s) for password widget.
-  FocusNode? passwordFocusNode1;
-  TextEditingController? passwordTextController1;
-  late bool passwordVisibility1;
-  String? Function(BuildContext, String?)? passwordTextController1Validator;
-  // State field(s) for password widget.
-  FocusNode? passwordFocusNode2;
-  TextEditingController? passwordTextController2;
-  late bool passwordVisibility2;
-  String? Function(BuildContext, String?)? passwordTextController2Validator;
+  FocusNode? passwordFocusNode;
+  TextEditingController? passwordTextController;
+  late bool passwordVisibility;
+  String? Function(BuildContext, String?)? passwordTextControllerValidator;
+  // State field(s) for confirmPassword widget.
+  FocusNode? confirmPasswordFocusNode;
+  TextEditingController? confirmPasswordTextController;
+  late bool confirmPasswordVisibility;
+  String? Function(BuildContext, String?)?
+      confirmPasswordTextControllerValidator;
 
   @override
   void initState(BuildContext context) {
     passwordLoginVisibility = false;
-    passwordVisibility1 = false;
-    passwordVisibility2 = false;
+    passwordVisibility = false;
+    confirmPasswordVisibility = false;
   }
 
   @override
@@ -57,10 +61,10 @@ class LoginPageMobileModel extends FlutterFlowModel<LoginPageMobileWidget> {
     emailAddressFocusNode?.dispose();
     emailAddressTextController?.dispose();
 
-    passwordFocusNode1?.dispose();
-    passwordTextController1?.dispose();
+    passwordFocusNode?.dispose();
+    passwordTextController?.dispose();
 
-    passwordFocusNode2?.dispose();
-    passwordTextController2?.dispose();
+    confirmPasswordFocusNode?.dispose();
+    confirmPasswordTextController?.dispose();
   }
 }

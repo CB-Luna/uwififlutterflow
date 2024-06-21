@@ -7,7 +7,12 @@ import 'timer_test_model.dart';
 export 'timer_test_model.dart';
 
 class TimerTestWidget extends StatefulWidget {
-  const TimerTestWidget({super.key});
+  const TimerTestWidget({
+    super.key,
+    this.tiempo,
+  });
+
+  final int? tiempo;
 
   @override
   State<TimerTestWidget> createState() => _TimerTestWidgetState();
@@ -40,7 +45,7 @@ class _TimerTestWidgetState extends State<TimerTestWidget> {
   @override
   Widget build(BuildContext context) {
     return FlutterFlowTimer(
-      initialTime: _model.timerInitialTimeMs,
+      initialTime: widget.tiempo!,
       getDisplayTime: (value) => StopWatchTimer.getDisplayTime(
         value,
         hours: false,

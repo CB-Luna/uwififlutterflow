@@ -25,4 +25,8 @@ class ProviderRow extends SupabaseDataRow {
 
   double get taxPerc => getField<double>('tax_perc')!;
   set taxPerc(double value) => setField<double>('tax_perc', value);
+
+  String? get scanZcAreaName => getField<String>('scan_zc_area_name');
+  set scanZcAreaName(String? value) =>
+      setField<String>('scan_zc_area_name', value);
 }

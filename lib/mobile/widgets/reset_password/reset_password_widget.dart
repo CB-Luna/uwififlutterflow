@@ -1,3 +1,4 @@
+import '/auth/supabase_auth/auth_util.dart';
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -33,12 +34,6 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
 
     _model.emailAddressTextController ??= TextEditingController();
     _model.emailAddressFocusNode ??= FocusNode();
-
-    _model.passwordTextController1 ??= TextEditingController();
-    _model.passwordFocusNode1 ??= FocusNode();
-
-    _model.passwordTextController2 ??= TextEditingController();
-    _model.passwordFocusNode2 ??= FocusNode();
 
     animationsMap.addAll({
       'containerOnPageLoadAnimation': AnimationInfo(
@@ -336,202 +331,6 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
                                         .asValidator(context),
                                   ),
                                 ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 0.0, 8.0, 16.0),
-                                  child: TextFormField(
-                                    controller: _model.passwordTextController1,
-                                    focusNode: _model.passwordFocusNode1,
-                                    autofocus: false,
-                                    textCapitalization:
-                                        TextCapitalization.sentences,
-                                    obscureText: !_model.passwordVisibility1,
-                                    decoration: InputDecoration(
-                                      labelText: 'New Password',
-                                      labelStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: const Color(0xFF57636C),
-                                            fontSize: 14.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: const Color(0xFF57636C),
-                                            fontSize: 14.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                          color: Color(0xFF4B39EF),
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      errorBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                          color: Color(0xFFFF5963),
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      focusedErrorBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                          color: Color(0xFFFF5963),
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      filled: true,
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      suffixIcon: InkWell(
-                                        onTap: () => setState(
-                                          () => _model.passwordVisibility1 =
-                                              !_model.passwordVisibility1,
-                                        ),
-                                        focusNode:
-                                            FocusNode(skipTraversal: true),
-                                        child: Icon(
-                                          _model.passwordVisibility1
-                                              ? Icons.visibility_outlined
-                                              : Icons.visibility_off_outlined,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          size: 20.0,
-                                        ),
-                                      ),
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: const Color(0xFF101213),
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                          useGoogleFonts: false,
-                                        ),
-                                    validator: _model
-                                        .passwordTextController1Validator
-                                        .asValidator(context),
-                                  ),
-                                ),
-                                Padding(
-                                  padding: const EdgeInsetsDirectional.fromSTEB(
-                                      8.0, 0.0, 8.0, 16.0),
-                                  child: TextFormField(
-                                    controller: _model.passwordTextController2,
-                                    focusNode: _model.passwordFocusNode2,
-                                    autofocus: false,
-                                    textCapitalization:
-                                        TextCapitalization.sentences,
-                                    obscureText: !_model.passwordVisibility2,
-                                    decoration: InputDecoration(
-                                      labelText: 'Confirm Password',
-                                      labelStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: const Color(0xFF57636C),
-                                            fontSize: 14.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                      hintStyle: FlutterFlowTheme.of(context)
-                                          .labelMedium
-                                          .override(
-                                            fontFamily: 'Plus Jakarta Sans',
-                                            color: const Color(0xFF57636C),
-                                            fontSize: 14.0,
-                                            letterSpacing: 0.0,
-                                            fontWeight: FontWeight.w500,
-                                          ),
-                                      enabledBorder: OutlineInputBorder(
-                                        borderSide: BorderSide(
-                                          color: FlutterFlowTheme.of(context)
-                                              .secondaryBackground,
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      focusedBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                          color: Color(0xFF4B39EF),
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      errorBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                          color: Color(0xFFFF5963),
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      focusedErrorBorder: OutlineInputBorder(
-                                        borderSide: const BorderSide(
-                                          color: Color(0xFFFF5963),
-                                          width: 2.0,
-                                        ),
-                                        borderRadius:
-                                            BorderRadius.circular(8.0),
-                                      ),
-                                      filled: true,
-                                      fillColor: FlutterFlowTheme.of(context)
-                                          .alternate,
-                                      suffixIcon: InkWell(
-                                        onTap: () => setState(
-                                          () => _model.passwordVisibility2 =
-                                              !_model.passwordVisibility2,
-                                        ),
-                                        focusNode:
-                                            FocusNode(skipTraversal: true),
-                                        child: Icon(
-                                          _model.passwordVisibility2
-                                              ? Icons.visibility_outlined
-                                              : Icons.visibility_off_outlined,
-                                          color: FlutterFlowTheme.of(context)
-                                              .primary,
-                                          size: 20.0,
-                                        ),
-                                      ),
-                                    ),
-                                    style: FlutterFlowTheme.of(context)
-                                        .bodyMedium
-                                        .override(
-                                          fontFamily: 'Inter',
-                                          color: const Color(0xFF101213),
-                                          fontSize: 14.0,
-                                          letterSpacing: 0.0,
-                                          fontWeight: FontWeight.w500,
-                                          useGoogleFonts: false,
-                                        ),
-                                    validator: _model
-                                        .passwordTextController2Validator
-                                        .asValidator(context),
-                                  ),
-                                ),
                                 Align(
                                   alignment: const AlignmentDirectional(0.0, 0.0),
                                   child: Padding(
@@ -539,24 +338,43 @@ class _ResetPasswordWidgetState extends State<ResetPasswordWidget>
                                         0.0, 0.0, 0.0, 16.0),
                                     child: FFButtonWidget(
                                       onPressed: () async {
+                                        if (_model.emailAddressTextController
+                                            .text.isEmpty) {
+                                          ScaffoldMessenger.of(context)
+                                              .showSnackBar(
+                                            const SnackBar(
+                                              content: Text(
+                                                'Email required!',
+                                              ),
+                                            ),
+                                          );
+                                          return;
+                                        }
+                                        await authManager.resetPassword(
+                                          email: _model
+                                              .emailAddressTextController.text,
+                                          context: context,
+                                        );
                                         await showDialog(
                                           context: context,
                                           builder: (alertDialogContext) {
                                             return AlertDialog(
-                                              title: const Text('Confirmation'),
+                                              title: const Text(
+                                                  'Password Recovery Email Sent'),
                                               content: const Text(
-                                                  'Your password has been successfully changed'),
+                                                  'We\'ve sent a password recovery email. Please check your inbox and spam folder.'),
                                               actions: [
                                                 TextButton(
                                                   onPressed: () =>
                                                       Navigator.pop(
                                                           alertDialogContext),
-                                                  child: const Text('Ok'),
+                                                  child: const Text('Close'),
                                                 ),
                                               ],
                                             );
                                           },
                                         );
+                                        Navigator.pop(context);
                                       },
                                       text: 'Change Password',
                                       options: FFButtonOptions(

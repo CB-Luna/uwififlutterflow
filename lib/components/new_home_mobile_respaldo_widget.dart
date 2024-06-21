@@ -6,25 +6,26 @@ import '/flutter_flow/flutter_flow_ad_banner.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_video_player.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
-import '/custom_code/widgets/index.dart' as custom_widgets;
 import 'package:expandable/expandable.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:provider/provider.dart';
-import 'new_home_mobile_model.dart';
-export 'new_home_mobile_model.dart';
+import 'new_home_mobile_respaldo_model.dart';
+export 'new_home_mobile_respaldo_model.dart';
 
-class NewHomeMobileWidget extends StatefulWidget {
-  const NewHomeMobileWidget({super.key});
+class NewHomeMobileRespaldoWidget extends StatefulWidget {
+  const NewHomeMobileRespaldoWidget({super.key});
 
   @override
-  State<NewHomeMobileWidget> createState() => _NewHomeMobileWidgetState();
+  State<NewHomeMobileRespaldoWidget> createState() =>
+      _NewHomeMobileRespaldoWidgetState();
 }
 
-class _NewHomeMobileWidgetState extends State<NewHomeMobileWidget> {
-  late NewHomeMobileModel _model;
+class _NewHomeMobileRespaldoWidgetState
+    extends State<NewHomeMobileRespaldoWidget> {
+  late NewHomeMobileRespaldoModel _model;
 
   @override
   void setState(VoidCallback callback) {
@@ -35,7 +36,7 @@ class _NewHomeMobileWidgetState extends State<NewHomeMobileWidget> {
   @override
   void initState() {
     super.initState();
-    _model = createModel(context, () => NewHomeMobileModel());
+    _model = createModel(context, () => NewHomeMobileRespaldoModel());
 
     _model.expandableExpandableController =
         ExpandableController(initialExpanded: false);
@@ -51,8 +52,6 @@ class _NewHomeMobileWidgetState extends State<NewHomeMobileWidget> {
 
   @override
   Widget build(BuildContext context) {
-    context.watch<FFAppState>();
-
     return Align(
       alignment: const AlignmentDirectional(-1.0, -1.0),
       child: Container(
@@ -91,30 +90,47 @@ class _NewHomeMobileWidgetState extends State<NewHomeMobileWidget> {
                       controller: _model.pageViewController ??= PageController(
                           initialPage:
                               max(0, min(0, pageViewAdRowList.length - 1))),
+                      onPageChanged: (_) async {
+                        await AdWatchedTable().insert({
+                          'ad_fk':
+                              pageViewAdRowList[_model.pageViewCurrentIndex].id,
+                          'customer_fk': 317,
+                          'points_earned':
+                              pageViewAdRowList[_model.pageViewCurrentIndex]
+                                  .points,
+                          'seconds_watched': 60,
+                        });
+                        FFAppState().globalPuntos = 666;
+                        setState(() {});
+                        ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                              'Points earned',
+                              style: TextStyle(
+                                color: FlutterFlowTheme.of(context).primaryText,
+                              ),
+                            ),
+                            duration: const Duration(milliseconds: 4000),
+                            backgroundColor:
+                                FlutterFlowTheme.of(context).secondary,
+                          ),
+                        );
+                      },
                       scrollDirection: Axis.vertical,
                       itemCount: pageViewAdRowList.length,
                       itemBuilder: (context, pageViewIndex) {
                         final pageViewAdRow = pageViewAdRowList[pageViewIndex];
-                        return SizedBox(
-                          width: 100.0,
-                          height: 100.0,
-                          child: custom_widgets.CustomVideoWidget(
-                            width: 100.0,
-                            height: 100.0,
-                            videoId: pageViewAdRow.id,
-                            video: pageViewAdRow.video!,
-                            customerId: FFAppState().userData.customerId,
-                            sendData: (videoId, customerId) async {
-                              await AdWatchedTable().insert({
-                                'customer_fk': customerId,
-                                'ad_fk': videoId,
-                              });
-                              FFAppState().globalPuntos =
-                                  FFAppState().globalPuntos +
-                                      pageViewAdRow.points!;
-                              setState(() {});
-                            },
-                          ),
+                        return FlutterFlowVideoPlayer(
+                          path: pageViewAdRow.video!,
+                          videoType: VideoType.network,
+                          width: MediaQuery.sizeOf(context).width * 1.0,
+                          height: MediaQuery.sizeOf(context).height * 1.0,
+                          autoPlay: true,
+                          looping: true,
+                          showControls: false,
+                          allowFullScreen: true,
+                          allowPlaybackSpeedMenu: false,
+                          pauseOnNavigate: false,
                         );
                       },
                     ),
@@ -193,6 +209,9 @@ class _NewHomeMobileWidgetState extends State<NewHomeMobileWidget> {
                                 size: 22.0,
                               ),
                               onPressed: () async {
+                                FFAppState().globalPuntos =
+                                    FFAppState().globalPuntos + 30;
+                                setState(() {});
                                 await showModalBottomSheet(
                                   isScrollControlled: true,
                                   backgroundColor: Colors.transparent,

@@ -1,24 +1,25 @@
 import '../database.dart';
 
-class AdTable extends SupabaseTable<AdRow> {
+class VideosWithCategoriesTable extends SupabaseTable<VideosWithCategoriesRow> {
   @override
-  String get tableName => 'ad';
+  String get tableName => 'videos_with_categories';
 
   @override
-  AdRow createRow(Map<String, dynamic> data) => AdRow(data);
+  VideosWithCategoriesRow createRow(Map<String, dynamic> data) =>
+      VideosWithCategoriesRow(data);
 }
 
-class AdRow extends SupabaseDataRow {
-  AdRow(super.data);
+class VideosWithCategoriesRow extends SupabaseDataRow {
+  VideosWithCategoriesRow(super.data);
 
   @override
-  SupabaseTable get table => AdTable();
+  SupabaseTable get table => VideosWithCategoriesTable();
 
-  int get id => getField<int>('id')!;
-  set id(int value) => setField<int>('id', value);
+  int? get id => getField<int>('id');
+  set id(int? value) => setField<int>('id', value);
 
-  DateTime get createdAt => getField<DateTime>('created_at')!;
-  set createdAt(DateTime value) => setField<DateTime>('created_at', value);
+  DateTime? get createdAt => getField<DateTime>('created_at');
+  set createdAt(DateTime? value) => setField<DateTime>('created_at', value);
 
   String? get overview => getField<String>('overview');
   set overview(String? value) => setField<String>('overview', value);
@@ -67,4 +68,7 @@ class AdRow extends SupabaseDataRow {
   String? get posterFileName => getField<String>('poster_file_name');
   set posterFileName(String? value) =>
       setField<String>('poster_file_name', value);
+
+  dynamic get categories => getField<dynamic>('categories');
+  set categories(dynamic value) => setField<dynamic>('categories', value);
 }
