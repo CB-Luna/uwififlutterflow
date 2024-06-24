@@ -1,3 +1,5 @@
+import 'dart:developer';
+
 import 'package:u_wifi/auth/supabase_auth/auth_util.dart';
 import 'package:u_wifi/backend/supabase/supabase.dart';
 
@@ -417,28 +419,46 @@ class _PasswordRecoveryCopyWidgetState extends State<PasswordRecoveryCopyWidget>
                                             return;
                                           }
 
-                                          //Validate token
-                                          final tokenValid = await SupaFlow.client.rpc(
-                                            'verify_token',
-                                            params: {'token_param': widget.token},
-                                          );
+                                          try {
+                                            //Validate token
+                                            final tokenValid = await SupaFlow.client.rpc(
+                                              'verify_token',
+                                              params: {'token_param': widget.token},
+                                            );
 
-                                          if (!tokenValid) {
-                                            //TODO: show error message
+                                            if (!tokenValid) {
+                                              //TODO: show error message
+                                              return null;
+                                            }
+
+                                            final passwordChanged = await SupaFlow.client.rpc(
+                                              'set_new_password',
+                                              params: {
+                                                'token_param': widget.token,
+                                                'new_plain_password': _model.passwordTextController1.text,
+                                              },
+                                            );
+
+                                            if (!passwordChanged) {
+                                              //TODO: show error message
+                                              return null;
+                                            }
+                                          } catch (e) {
+                                            log('Error changing user password - $e');
                                             return null;
                                           }
 
-                                          //TODO: change user password
+                                          if (!mounted) return;
+
                                           //TODO: sign in user after changing password
                                           GoRouter.of(context).prepareAuthEvent();
 
                                           final user = await authManager.signInWithEmail(
                                             context,
-                                            '',
-                                            '',
-                                            // _model.emailTextController.text,
-                                            // _model.passwordTextController.text,
+                                            widget.payload['email'],
+                                            _model.passwordTextController1.text,
                                           );
+
                                           if (user == null) {
                                             return;
                                           }
