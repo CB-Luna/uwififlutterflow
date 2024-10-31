@@ -131,7 +131,7 @@ class _PasswordRecoveryCopyWidgetState extends State<PasswordRecoveryCopyWidget>
           : FocusScope.of(context).unfocus(),
       child: Scaffold(
         key: scaffoldKey,
-        backgroundColor: FlutterFlowTheme.of(context).primaryBackground,
+        backgroundColor: Colors.white,
         body: Stack(
           children: [
             Padding(
@@ -224,7 +224,7 @@ class _PasswordRecoveryCopyWidgetState extends State<PasswordRecoveryCopyWidget>
                                       ),
                                     ),
                                   Text(
-                                    'Reset your password',
+                                    'Change your password',
                                     textAlign: TextAlign.start,
                                     style: FlutterFlowTheme.of(context).headlineMedium.override(
                                           fontFamily: 'Inter',
@@ -262,14 +262,14 @@ class _PasswordRecoveryCopyWidgetState extends State<PasswordRecoveryCopyWidget>
                                         labelText: 'New Password',
                                         labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                               fontFamily: 'Plus Jakarta Sans',
-                                              color: const Color(0xFF57636C),
+                                              color: Colors.white,
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                         hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                               fontFamily: 'Plus Jakarta Sans',
-                                              color: const Color(0xFF57636C),
+                                              color: Colors.white,
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
@@ -320,7 +320,7 @@ class _PasswordRecoveryCopyWidgetState extends State<PasswordRecoveryCopyWidget>
                                       ),
                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                             fontFamily: 'Inter',
-                                            color: const Color(0xFF101213),
+                                            color: Colors.white,
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,
@@ -341,14 +341,14 @@ class _PasswordRecoveryCopyWidgetState extends State<PasswordRecoveryCopyWidget>
                                         labelText: 'Confirm Password',
                                         labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                               fontFamily: 'Plus Jakarta Sans',
-                                              color: const Color(0xFF57636C),
+                                              color: Colors.white,
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
                                             ),
                                         hintStyle: FlutterFlowTheme.of(context).labelMedium.override(
                                               fontFamily: 'Plus Jakarta Sans',
-                                              color: const Color(0xFF57636C),
+                                              color: Colors.white,
                                               fontSize: 14.0,
                                               letterSpacing: 0.0,
                                               fontWeight: FontWeight.w500,
@@ -399,7 +399,7 @@ class _PasswordRecoveryCopyWidgetState extends State<PasswordRecoveryCopyWidget>
                                       ),
                                       style: FlutterFlowTheme.of(context).bodyMedium.override(
                                             fontFamily: 'Inter',
-                                            color: const Color(0xFF101213),
+                                            color: Colors.white,
                                             fontSize: 14.0,
                                             letterSpacing: 0.0,
                                             fontWeight: FontWeight.w500,

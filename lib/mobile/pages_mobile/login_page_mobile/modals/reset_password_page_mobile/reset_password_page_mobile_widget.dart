@@ -196,7 +196,7 @@ class _ResetPasswordPageMobileWidgetState
                                 ),
                               ),
                             Text(
-                              'Reset your password',
+                              'Change your password',
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
                                   .headlineMedium
@@ -323,7 +323,7 @@ class _ResetPasswordPageMobileWidgetState
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Plus Jakarta Sans',
-                                        color: const Color(0xFF57636C),
+                                        color: Colors.white,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -332,7 +332,7 @@ class _ResetPasswordPageMobileWidgetState
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Plus Jakarta Sans',
-                                        color: const Color(0xFF57636C),
+                                        color: Colors.white,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -389,7 +389,7 @@ class _ResetPasswordPageMobileWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
-                                      color: const Color(0xFF101213),
+                                      color: Colors.white,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
@@ -416,7 +416,7 @@ class _ResetPasswordPageMobileWidgetState
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Plus Jakarta Sans',
-                                        color: const Color(0xFF57636C),
+                                        color: Colors.white,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -425,7 +425,7 @@ class _ResetPasswordPageMobileWidgetState
                                       .labelMedium
                                       .override(
                                         fontFamily: 'Plus Jakarta Sans',
-                                        color: const Color(0xFF57636C),
+                                        color: Colors.white,
                                         fontSize: 14.0,
                                         letterSpacing: 0.0,
                                         fontWeight: FontWeight.w500,
@@ -482,7 +482,7 @@ class _ResetPasswordPageMobileWidgetState
                                     .bodyMedium
                                     .override(
                                       fontFamily: 'Inter',
-                                      color: const Color(0xFF101213),
+                                      color: Colors.white,
                                       fontSize: 14.0,
                                       letterSpacing: 0.0,
                                       fontWeight: FontWeight.w500,
