@@ -452,7 +452,6 @@ class _PasswordRecoveryCopyWidgetState extends State<PasswordRecoveryCopyWidget>
 
                                           //TODO: sign in user after changing password
                                           GoRouter.of(context).prepareAuthEvent();
-
                                           final user = await authManager.signInWithEmail(
                                             context,
                                             widget.payload['email'],
