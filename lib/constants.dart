@@ -1,0 +1,1 @@
+const urlNotificationsAPI = "https://u-airflow.virtalus.cbluna-dev.com/notifications/api";

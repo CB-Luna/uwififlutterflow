@@ -1,7 +1,9 @@
 import 'dart:developer';
 
+import 'package:http/http.dart';
 import 'package:u_wifi/auth/supabase_auth/auth_util.dart';
 import 'package:u_wifi/backend/supabase/supabase.dart';
+import 'package:u_wifi/constants.dart';
 
 import '/flutter_flow/flutter_flow_animations.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
@@ -447,6 +449,25 @@ class _PasswordRecoveryCopyWidgetState extends State<PasswordRecoveryCopyWidget>
                                             log('Error changing user password - $e');
                                             return null;
                                           }
+                                          String url = urlNotificationsAPI;
+                                          String body = jsonEncode({
+                                            "action": "notificationsMail",
+                                            "template": "LinkMobileAppToDowloand",
+                                            "subject": "Download Mobile App",
+                                            "mailto": widget.payload['email'], //cuenta para hacer pruebas
+                                            "variables": [
+                                            ]
+                                          });
+                                          var urlNotification =
+                                                Uri.parse(url);
+                                          final headers = ({
+                                            "Content-Type": "application/json",
+                                          });
+                                          await post(
+                                            urlNotification,
+                                            headers: headers,
+                                            body: body
+                                          );
 
                                           if (!mounted) return;
 
