@@ -196,7 +196,7 @@ class _ResetPasswordPageMobileWidgetState
                                 ),
                               ),
                             Text(
-                              'Change your password',
+                              'Reset your password',
                               textAlign: TextAlign.start,
                               style: FlutterFlowTheme.of(context)
                                   .headlineMedium
