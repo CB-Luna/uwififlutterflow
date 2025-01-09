@@ -56,7 +56,7 @@ class _WelcomeTabletWidgetState extends State<WelcomeTabletWidget> {
                       image: DecorationImage(
                         fit: BoxFit.cover,
                         image: Image.asset(
-                          'assets/images/vnimc_1.png',
+                          'assets/images/White.png',
                         ).image,
                       ),
                       borderRadius: const BorderRadius.only(

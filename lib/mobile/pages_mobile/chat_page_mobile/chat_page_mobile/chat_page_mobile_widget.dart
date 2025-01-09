@@ -94,7 +94,7 @@ class _ChatPageMobileWidgetState extends State<ChatPageMobileWidget> {
                                       shape: BoxShape.circle,
                                     ),
                                     child: Image.asset(
-                                      'assets/images/vnimc_1.png',
+                                      'assets/images/White.png',
                                       fit: BoxFit.cover,
                                     ),
                                   ),
